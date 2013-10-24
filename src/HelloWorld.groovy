@@ -10,20 +10,17 @@ import java.text.SimpleDateFormat
  * To change this template use File | Settings | File Templates.
  */
 
-
-
-//def text = 'Hello world'
-//println(text)
-
 class Hello {
 
     public static void main(String[] args) {
+
 
         if (args.length != 1 ){
             println("please enter folder path ")
             return;
         }
         String path = args[0];
+        SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         println("Entered dir path: " + path)
         File dir = new File(path);
 
@@ -64,7 +61,6 @@ class Hello {
                 case file.name.startsWith("d_"):
                     file.delete()
                     file = new File(it.path)
-                    SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
                     file.append(sdfDate.format(new Date()))
                     file.renameTo(file.parent+"/done_"+file.name)
                     break
